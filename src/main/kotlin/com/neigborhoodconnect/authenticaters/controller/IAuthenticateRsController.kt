@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody
 
 interface IAuthenticateRsController {
 
-    @GetMapping("/heartbeat")
+    @GetMapping("/heartbeat", produces = ["application/json"])
     fun heartBeat(): String
 
-    @PostMapping("/sign-up")
+    @PostMapping("/sign-up", produces = ["application/json"])
     fun signUp(@RequestBody signUpRequest: SignUpRequest): ResponseEntity<Any>
 }
