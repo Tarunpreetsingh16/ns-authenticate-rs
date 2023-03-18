@@ -12,7 +12,7 @@ class UserCredentialsRepositoryServiceImpl(private val userCredentialsRepository
         return userCredentialsRepository.save(userCredentials)
     }
 
-    override fun doesUserExist(username: String): UserCredentials? {
+    override fun getUserCredentialsIfExists(username: String): UserCredentials? {
         return userCredentialsRepository.findByUsername(username)
     }
 }
