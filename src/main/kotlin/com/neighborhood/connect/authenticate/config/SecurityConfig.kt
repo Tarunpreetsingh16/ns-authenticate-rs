@@ -4,7 +4,9 @@ import com.neighborhood.connect.jwtlib.filters.JWTRequestFilter
 import com.neighborhood.connect.jwtlib.service.JWTService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -24,9 +26,7 @@ class SecurityConfig(
             .csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
             .authorizeHttpRequests()
-            .requestMatchers( "/authenticate/sign-up").permitAll()
-            .requestMatchers("/error").permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().permitAll()
             .and()
             .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter::class.java)
 
@@ -41,5 +41,11 @@ class SecurityConfig(
     fun configure(auth: AuthenticationManagerBuilder) {
         auth.userDetailsService(jwtService)
             .passwordEncoder(passwordEncoder())
+    }
+
+    @Bean
+    @Throws(java.lang.Exception::class)
+    fun authenticationManager(authenticationConfiguration: AuthenticationConfiguration): AuthenticationManager? {
+        return authenticationConfiguration.authenticationManager
     }
 }

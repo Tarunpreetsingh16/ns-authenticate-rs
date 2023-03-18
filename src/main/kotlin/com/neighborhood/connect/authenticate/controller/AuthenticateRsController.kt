@@ -22,6 +22,6 @@ class AuthenticateRsController (private val authenticateRsServiceImpl: Authentic
     }
 
     override fun login(signInRequest: SignInRequest): ResponseEntity<Any> {
-        return ResponseEntity.ok(null)
+        return authenticateRsServiceImpl.login(signInRequest)
     }
 }
