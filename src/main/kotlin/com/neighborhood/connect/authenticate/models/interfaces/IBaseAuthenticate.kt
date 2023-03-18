@@ -1,4 +1,4 @@
-package com.neigborhoodconnect.authenticaters.models.interfaces
+package com.neighborhood.connect.authenticate.models.interfaces
 
 interface IBaseAuthenticate {
     val username: String

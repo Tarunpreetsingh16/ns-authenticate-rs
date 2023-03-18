@@ -1,4 +1,4 @@
-package com.neigborhoodconnect.authenticaters.entities
+package com.neighborhood.connect.authenticate.entities
 
 import jakarta.persistence.*
 

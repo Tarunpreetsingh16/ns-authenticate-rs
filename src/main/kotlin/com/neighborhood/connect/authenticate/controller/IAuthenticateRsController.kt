@@ -1,6 +1,7 @@
-package com.neigborhoodconnect.authenticaters.controller
+package com.neighborhood.connect.authenticate.controller
 
-import com.neigborhoodconnect.authenticaters.models.SignUpRequest
+import com.neighborhood.connect.authenticate.models.SignInRequest
+import com.neighborhood.connect.authenticate.models.SignUpRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -13,4 +14,7 @@ interface IAuthenticateRsController {
 
     @PostMapping("/sign-up", produces = ["application/json"])
     fun signUp(@RequestBody signUpRequest: SignUpRequest): ResponseEntity<Any>
+
+    @PostMapping("/login", produces = ["application/json"])
+    fun login(@RequestBody signInRequest: SignInRequest): ResponseEntity<Any>
 }

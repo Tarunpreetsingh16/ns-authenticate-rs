@@ -1,6 +1,6 @@
-package com.neigborhoodconnect.authenticaters.service
+package com.neighborhood.connect.authenticate.service
 
-import com.neigborhoodconnect.authenticaters.models.SignUpRequest
+import com.neighborhood.connect.authenticate.models.SignUpRequest
 import org.springframework.http.ResponseEntity
 
 interface IAuthenticateRsService {

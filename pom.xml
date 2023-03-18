@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.neighborhood-connect</groupId>
+	<groupId>com.neighborhood.connect</groupId>
 	<artifactId>authenticate-rs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>authenticate-rs</name>
@@ -23,6 +23,10 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -55,6 +59,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ns.neighborhood.connect</groupId>
+			<artifactId>jwt-lib</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 
 		<!--Test dependencies-->
