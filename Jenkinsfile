@@ -22,19 +22,19 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('Publish to Artifactory') {
-            steps {
-                rtUpload (
-                    serverId: 'Artifactory',
-                    spec: '''{
-                        "files": [
-                            {
-                            "pattern": "target/*.jar",
-                            "target": "local-maven-snapshot/"
-                            }
-                        ]
-                    }'''
-            )
-        }
+//         stage('Publish to Artifactory') {
+//             steps {
+//                 rtUpload (
+//                     serverId: 'Artifactory',
+//                     spec: '''{
+//                         "files": [
+//                             {
+//                             "pattern": "target/*.jar",
+//                             "target": "local-maven-snapshot/"
+//                             }
+//                         ]
+//                     }'''
+//             )
+//         }
     }
 }
