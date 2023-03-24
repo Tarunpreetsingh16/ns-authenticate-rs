@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building on ${NODE_NAME}'
+                echo "Building on ${NODE_NAME}"
                 sh 'mvn install -DskipTests=true'
             }
         }
@@ -23,19 +23,19 @@ pipeline {
                 sh 'mvn package'
             }
         }
-//         stage('Publish to Artifactory') {
-//             steps {
-//                 rtUpload (
-//                     serverId: 'Artifactory',
-//                     spec: '''{
-//                         "files": [
-//                             {
-//                             "pattern": "target/*.jar",
-//                             "target": "local-maven-snapshot/"
-//                             }
-//                         ]
-//                     }'''
-//             )
-//         }
+        stage('Publish to Artifactory') {
+            steps {
+                rtUpload (
+                    serverId: 'Artifactory',
+                    spec: '''{
+                        "files": [
+                            {
+                            "pattern": "target/*.jar",
+                            "target": "local-maven-snapshot/"
+                            }
+                        ]
+                    }'''
+            )
+        }
     }
 }
