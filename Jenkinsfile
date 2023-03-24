@@ -30,8 +30,8 @@ pipeline {
                     spec: '''{
                         "files": [
                             {
-                            "pattern": "target/*.jar",
-                            "target": "local-maven-snapshot/"
+                                "pattern": "/Users/jimmy/jenkins/workspace/Neighborhood-connect/authenticate-rs/authenticate-rs_DEV-CI/target/*.jar",
+                                "target": "local-maven-snapshot/"
                             }
                         ]
                     }'''
