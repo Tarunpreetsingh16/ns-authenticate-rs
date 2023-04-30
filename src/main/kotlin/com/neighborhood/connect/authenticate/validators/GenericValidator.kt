@@ -63,10 +63,6 @@ open class GenericValidator {
         else fieldErrors.errors[fieldName] = mutableListOf(error)
     }
 
-    fun hasErrors(): Boolean {
-        return hasError
-    }
-
     fun getFieldErrors(): FieldErrors {
         return fieldErrors
     }
