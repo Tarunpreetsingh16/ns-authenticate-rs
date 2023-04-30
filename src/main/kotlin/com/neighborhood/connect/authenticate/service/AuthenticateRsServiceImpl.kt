@@ -7,6 +7,7 @@ import com.neighborhood.connect.authenticate.models.SignUpRequest
 import com.neighborhood.connect.authenticate.models.AuthenticateResponse
 import com.neighborhood.connect.authenticate.models.SignInRequest
 import com.neighborhood.connect.authenticate.service.db.UserCredentialsRepositoryServiceImpl
+import com.neighborhood.connect.errorhandlerlib.ErrorCode
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
@@ -27,7 +28,7 @@ class AuthenticateRsServiceImpl(
         val userCredentialsIfExists =
             userCredentialsRepositoryServiceImpl.getUserCredentialsIfExists(signUpRequest.username)
         if (userCredentialsIfExists != null) {
-            throw ResponseStatusException(HttpStatus.CONFLICT, "Account already exists with the username")
+            throw ResponseStatusException(HttpStatus.CONFLICT, ErrorCode.ACCOUNT_ALREADY_EXISTS.name)
         } else {
             val encryptedPassword = BCryptPasswordEncoder().encode(signUpRequest.password)
             val userCredentials = UserCredentials(username = signUpRequest.username, password = encryptedPassword)
