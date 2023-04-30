@@ -4,7 +4,8 @@ import com.neighborhood.connect.authenticate.models.interfaces.IBaseAuthenticate
 
 data class SignUpRequest(
     override val username: String,
-    override val password: String)
-    : IBaseAuthenticate {
+    override val password: String,
+    val confirmPassword: String
+) : IBaseAuthenticate {
 
 }
